@@ -1,0 +1,28 @@
+{
+    "name": "silverbullet/api-token-laravel",
+    "description": "Token-based API service authentication & authorization for Laravel",
+    "keywords": ["api", "api token", "authentication", "service", "authorization", "laravel"],
+    "homepage": "https://github.com/yoksanherlie/api-token-laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yoksan Herlie",
+            "email": "yoksanh@gmail.com"
+        }
+    ],
+    "require": {
+        "php" : "~7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "SilverBullet\\ApiTokenLaravel\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Silverbullet\\ApiTokenLaravel\\Providers\\ApiTokenServiceProvider"
+            ]
+        }
+    }
+}
