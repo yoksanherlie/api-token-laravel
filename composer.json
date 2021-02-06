@@ -20,8 +20,8 @@
     },
     "extra": {
         "laravel": {
-            "providers": [
-                "Silverbullet\\ApiTokenLaravel\\ApiTokenServiceProvider"
+            "dont-discover": [
+                "silverbullet/api-token-laravel"
             ]
         }
     }
