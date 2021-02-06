@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php" : "~7.2"
+        "php" : "^7.0"
     },
     "autoload": {
         "psr-4": {
@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Silverbullet\\ApiTokenLaravel\\Providers\\ApiTokenServiceProvider"
+                "Silverbullet\\ApiTokenLaravel\\ApiTokenServiceProvider"
             ]
         }
     }
