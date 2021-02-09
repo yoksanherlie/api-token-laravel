@@ -23,7 +23,7 @@ class ApiTokenAuthorized
         $validToken = ApiToken::where($token, '=', $token)->first();
 
         if ($validToken) {
-            $valid = ApiToken::whereIn('code', '=', $codes)->where($token, '=', $token)->first();
+            $valid = ApiToken::whereIn('code', '=', $codes)->where('token', '=', $token)->first();
 
             if ($valid) {
                 return $next($request);
