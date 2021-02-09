@@ -20,10 +20,10 @@ class ApiTokenAuthorized
         $authorizationHeader = $request->header('Authorization');
         $token = substr($authorizationHeader, 7);
 
-        $validToken = ApiToken::where($token, '=', $token)->first();
+        $validToken = ApiToken::where('token', '=', $token)->first();
 
         if ($validToken) {
-            $valid = ApiToken::whereIn('code', '=', $codes)->where($token, '=', $token)->first();
+            $valid = ApiToken::whereIn('code', '=', $codes)->where('token', '=', $token)->first();
 
             if ($valid) {
                 return $next($request);
