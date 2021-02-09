@@ -1,6 +1,6 @@
 <?php
 
-namespace Silverbullet\ApiTokenLaravel;
+namespace Silverbullet\ApiTokenLaravel\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Silverbullet\ApiTokenLaravel\Console\GenerateApiToken;

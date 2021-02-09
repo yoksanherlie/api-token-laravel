@@ -24,7 +24,7 @@ Add service provider to the `providers` array in `config/app.php` file:
 
 Publish the migration file:
 ``` bash
-php artisan vendor:publish
+php artisan vendor:publish --provider="Silverbullet\ApiTokenLaravel\Providers\ApiTokenServiceProvider"
 ```
 
 Run the migration:
