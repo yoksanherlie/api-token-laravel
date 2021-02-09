@@ -12,7 +12,7 @@ class ApiTokenAuthorized
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string $code
+     * @param  string[] $code
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle($request, Closure $next, ...$codes)
@@ -23,7 +23,7 @@ class ApiTokenAuthorized
         $validToken = ApiToken::where('token', '=', $token)->first();
 
         if ($validToken) {
-            $valid = ApiToken::whereIn('code', '=', $codes)->where('token', '=', $token)->first();
+            $valid = ApiToken::whereIn('code', $codes)->where('token', '=', $token)->first();
 
             if ($valid) {
                 return $next($request);
