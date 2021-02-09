@@ -39,7 +39,7 @@ class ApiTokenServiceProvider extends ServiceProvider
     {
         $router = $this->app['router'];
 
-        $method = method_exists($route, 'aliasMiddleware') ? 'aliasMiddleware' : 'middleware';
+        $method = method_exists($router, 'aliasMiddleware') ? 'aliasMiddleware' : 'middleware';
 
         $router->$method('apitoken.auth', ApiTokenAuthorized::class);
     }
