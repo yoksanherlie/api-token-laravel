@@ -18,18 +18,21 @@ class ApiTokenAuthorized
     public function handle($request, Closure $next, ...$codes)
     {
         $authorizationHeader = $request->header('Authorization');
-        $token = substr($authorizationHeader, 7);
-
-        $validToken = ApiToken::where('token', '=', $token)->first();
-
-        if ($validToken) {
-            $valid = ApiToken::whereIn('code', $codes)->where('token', '=', $token)->first();
-
-            if ($valid) {
-                return $next($request);
+        
+        if ($authorizationHeader) {
+            $token = substr($authorizationHeader, 6);
+    
+            $validToken = ApiToken::where('token', '=', $token)->first();
+    
+            if ($validToken) {
+                $valid = ApiToken::whereIn('code', $codes)->where('token', '=', $token)->first();
+    
+                if ($valid) {
+                    return $next($request);
+                }
+    
+                abort(403, 'Unauthorized.');
             }
-
-            abort(403, 'Unauthorized.');
         }
 
         abort(401, 'Unauthenticated.');
